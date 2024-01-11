@@ -1,7 +1,9 @@
 #! /bin/bash
 
 script_file=$(readlink -f $0)
-script_dir=$(dirname "$SCRIPT")
-export PATH=$PATH:$script_dir/bin
-echo -e "\n#THIS MUST BE AT THE END OF THE FILE FOR DEVENV TO WORK!!!\nsource $script_dir/.devenv.bashrc" >> "$HOME/.bashrc"
+script_dir=$(dirname "$script_file")
+export PATH="$PATH:$script_dir/bin"
+echo -e "\n#THIS MUST BE AT THE END OF THE FILE FOR DEVENV TO WORK!!!" >> "$HOME/.bashrc"
+echo "source $script_dir/.devenv.bashrc" >> "$HOME/.bashrc"
+echo "export PATH=\$PATH:$script_dir/bin" >> "$HOME/.bashrc"
 exec $SHELL -l;

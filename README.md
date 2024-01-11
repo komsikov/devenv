@@ -3,5 +3,5 @@
 ## install
 
 ```sh
-sh -c "$(curl -fsSL https://raw.github.com/komsikov/devenv/main/install)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/komsikov/devenv/master/install)"
 ```
