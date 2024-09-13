@@ -1,0 +1,15 @@
+#! /bin/bash
+
+exit_code=0
+
+check_last_command_exit_code () {
+  exit_code=$?
+  message=${1:-"Error"}
+  if [ $exit_code -ne 0 ]; then
+    echo $message
+    exit $exit_code
+  fi  
+}
+
+npm i --legacy-peer-deps $@
+check_last_command_exit_code
