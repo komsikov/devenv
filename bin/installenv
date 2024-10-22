@@ -1,0 +1,50 @@
+#! /bin/bash
+
+if [ "$EUID" -ne 0 ] then;
+  echo "Please run as root"
+  exit
+fi
+
+exit_code=0
+
+check_last_command_exit_code () {
+  exit_code=$?
+  message=${1:-"Error"}
+  if [ $exit_code -ne 0 ]; then
+    echo $message
+    exit $exit_code
+  fi  
+}
+
+apt update
+
+apt install curl
+check_last_command_exit_code
+apt install git
+check_last_command_exit_code
+apt install zsh
+check_last_command_exit_code
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+apt install nvim
+check_last_command_exit_code
+apt install tmux
+check_last_command_exit_code
+apt install htop
+check_last_command_exit_code
+apt install virtualbox
+check_last_command_exit_code
+apt install virtualbox-ext-pack
+check_last_command_exit_code
+apt install qemu-system
+check_last_command_exit_code
+apt install nvtop
+check_last_command_exit_code
+#  Install go
+# curl https://go.dev/dl/go1.23.2.linux-amd64.tar.gz -o go1.23.2.linux-amd64.tar.gz
+# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+# export PATH=$PATH:/usr/local/go/bin
+# export GOPATH=$HOME/.go
+# check_last_command_exit_code
+
+# curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+# check_last_command_exit_code
