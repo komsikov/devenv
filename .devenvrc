@@ -1,5 +1,9 @@
 script_file=$(readlink -f $0)
 script_dir=$(dirname "$script_file")
+
 export PATH="$PATH:$script_dir/bin"
 
 alias nlpd="npm i --legacy-peer-deps"
+
+# Set the Android SDK path in the PATH environment variable
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
