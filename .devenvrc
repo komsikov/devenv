@@ -5,5 +5,12 @@ export PATH="$PATH:$script_dir/bin"
 
 alias nlpd="npm i --legacy-peer-deps"
 
-# Set the Android SDK path in the PATH environment variable
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+# Set the Android SDK paths in the PATH environment variable
+# Deprecated path
+# export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest
+# Deprecated path
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$ANDROID_HOME/build-tools
